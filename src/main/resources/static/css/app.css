@@ -1,0 +1,96 @@
+/* ── CSS Custom Properties ─────────────────────────────────────────────── */
+:root {
+    --color-primary: #3b82d4;
+    --color-success: #22c55e;
+    --color-missed:  #f3f4f6;
+    --color-future:  #ffffff;
+}
+
+/* ── Habit Cards ───────────────────────────────────────────────────────── */
+.habit-card {
+    transition: transform .15s ease, box-shadow .15s ease;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+.habit-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,.12);
+}
+
+/* ── Streak Badge ──────────────────────────────────────────────────────── */
+.streak-badge {
+    display: inline-block;
+    padding: .15rem .55rem;
+    border-radius: 999px;
+    background: #fff3cd;
+    color: #856404;
+    font-size: .8rem;
+    font-weight: 600;
+    border: 1px solid #ffe08a;
+}
+
+/* ── Calendar ──────────────────────────────────────────────────────────── */
+.calendar-table {
+    table-layout: fixed;
+}
+.calendar-day {
+    height: 54px;
+    vertical-align: middle;
+    font-size: .9rem;
+    background: var(--color-future);
+}
+.calendar-day.completed {
+    background: #d1fae5;
+    color: #065f46;
+    font-weight: 600;
+}
+.calendar-day.missed {
+    background: var(--color-missed);
+    color: #9ca3af;
+}
+.calendar-day.future {
+    background: var(--color-future);
+    color: #d1d5db;
+}
+.calendar-empty {
+    background: #f9fafb;
+}
+
+/* ── Badge Shelf ───────────────────────────────────────────────────────── */
+.badge-shelf {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+}
+.badge-pill {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    font-size: .85rem;
+    font-weight: 600;
+    min-width: 110px;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+    background: #f7f8fa;
+}
+.badge-streak_7   { background: #fff7ed; border-color: #fed7aa; color: #9a3412; }
+.badge-streak_30  { background: #fef9c3; border-color: #fde68a; color: #78350f; }
+.badge-streak_100 { background: #ede9fe; border-color: #c4b5fd; color: #4c1d95; }
+.badge-rate_50    { background: #f0fdf4; border-color: #bbf7d0; color: #14532d; }
+.badge-rate_80    { background: #ecfdf5; border-color: #6ee7b7; color: #064e3b; }
+.badge-rate_100   { background: #eff6ff; border-color: #93c5fd; color: #1e3a8a; }
+
+/* ── Calendar Legend Dots ─────────────────────────────────────────────── */
+.legend-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-right: 3px;
+}
+.completed-dot { background: #d1fae5; border: 1px solid #6ee7b7; }
+.missed-dot    { background: var(--color-missed); border: 1px solid #e5e7eb; }
+.future-dot    { background: var(--color-future); border: 1px solid #e5e7eb; }
