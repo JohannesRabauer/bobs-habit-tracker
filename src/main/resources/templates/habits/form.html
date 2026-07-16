@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title th:text="${editing ? 'Edit Habit' : 'New Habit'} + ' — Habit Tracker'"></title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/app.css}"/>
+</head>
+<body class="bg-light">
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<main class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+
+            <nav aria-label="breadcrumb" class="mb-3">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a th:href="@{/habits}">Habits</a></li>
+                    <li class="breadcrumb-item active"
+                        th:text="${editing ? 'Edit' : 'New'}"></li>
+                </ol>
+            </nav>
+
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h5 class="mb-0" th:text="${editing ? 'Edit Habit' : 'New Habit'}"></h5>
+                </div>
+                <div class="card-body">
+                    <!-- Create form -->
+                    <form th:if="${!editing}"
+                          th:action="@{/habits}" method="post"
+                          th:object="${form}" novalidate>
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
+                            <input type="text" id="name" class="form-control"
+                                   th:field="*{name}"
+                                   th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : ''"/>
+                            <div class="invalid-feedback" th:errors="*{name}"></div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea id="description" class="form-control" rows="2"
+                                      th:field="*{description}"></textarea>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="color" class="form-label">Colour</label>
+                                <input type="color" id="color" class="form-control form-control-color w-100"
+                                       th:field="*{color}"/>
+                            </div>
+                            <div class="col">
+                                <label for="icon" class="form-label">Icon (emoji)</label>
+                                <input type="text" id="icon" class="form-control"
+                                       th:field="*{icon}" placeholder="⭐"/>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-plus-circle me-1"></i>Create
+                            </button>
+                            <a th:href="@{/habits}" class="btn btn-secondary">Cancel</a>
+                        </div>
+                    </form>
+
+                    <!-- Edit form -->
+                    <form th:if="${editing}"
+                          th:action="@{/habits/{id}(id=${form.id})}" method="post"
+                          th:object="${form}" novalidate>
+
+                        <div class="mb-3">
+                            <label for="nameE" class="form-label">Name <span class="text-danger">*</span></label>
+                            <input type="text" id="nameE" class="form-control"
+                                   th:field="*{name}"
+                                   th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : ''"/>
+                            <div class="invalid-feedback" th:errors="*{name}"></div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="descriptionE" class="form-label">Description</label>
+                            <textarea id="descriptionE" class="form-control" rows="2"
+                                      th:field="*{description}"></textarea>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="colorE" class="form-label">Colour</label>
+                                <input type="color" id="colorE" class="form-control form-control-color w-100"
+                                       th:field="*{color}"/>
+                            </div>
+                            <div class="col">
+                                <label for="iconE" class="form-label">Icon (emoji)</label>
+                                <input type="text" id="iconE" class="form-control"
+                                       th:field="*{icon}" placeholder="⭐"/>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-save me-1"></i>Save
+                            </button>
+                            <a th:href="@{/habits}" class="btn btn-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+<footer class="text-center text-muted py-3 mt-4 border-top" style="font-size:0.8rem">
+    Habit Tracker — Keep your streaks alive 🔥
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script th:src="@{/js/app.js}"></script>
+</body>
+</html>
