@@ -1,0 +1,16 @@
+# Compiled output
+target/
+
+# H2 local database files
+data/
+
+# IDE
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
