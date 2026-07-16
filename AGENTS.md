@@ -1,0 +1,1 @@
+If you create a planning document, avoid mentioning technologies or pseudo code.
