@@ -1,4 +1,6 @@
-﻿# Bob's Habit Tracker 🔥
+# Bob's Habit Tracker 🔥
+
+[![Live coding session](https://img.youtube.com/vi/_7rzl1_td5Y/maxresdefault.jpg)](https://youtube.com/live/_7rzl1_td5Y)
 
 A clean, single-user habit tracker built with **Spring Boot 3.3**, **Thymeleaf**, and **Bootstrap 5**.
 Track daily habits, watch streaks grow, and earn achievement badges — all running locally with zero external dependencies.
