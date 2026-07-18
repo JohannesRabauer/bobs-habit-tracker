@@ -19,6 +19,22 @@ Track daily habits, watch streaks grow, and earn achievement badges — all runn
 
 ---
 
+## Screenshots
+
+### Dashboard — today's habits at a glance
+![Dashboard](docs/screenshots/dashboard.png)
+
+### Habits — manage your full habit list
+![Habit list](docs/screenshots/habits-list.png)
+
+### Statistics — streaks, completions, and a 30-day chart
+![Statistics](docs/screenshots/stats.png)
+
+### Calendar — month-grid view per habit
+![Calendar](docs/screenshots/calendar.png)
+
+---
+
 ## Tech Stack
 
 - **Java 21** · **Spring Boot 3.3**
